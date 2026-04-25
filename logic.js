@@ -2,7 +2,7 @@
 
 function getHumanChoice() {
     const choice = window.prompt("What is your choice? rock / paper / scissor");
-    console.log(choice);
+    console.log(`player chose ${choice}`);
     return choice;
 }
 
@@ -17,39 +17,39 @@ function getComputerChoice() {
     } else {
         opt = "scissor"
     };
-    console.log(opt)
+    console.log(`machine choice ${opt}`)
     return opt;
 }
 
 //comparacion de opciones y punto al ganador
-
+let humanScore = 0;
+let machineScore = 0;
 
 function playRound(humanchoice, computerchoice){
-    let humanScore = 0;
-    let machineScore = 0;
+
     let human = humanchoice.toLowerCase();
     if(human === "rock" && computerchoice === "scissor"){
         console.log("you win rock beats scissor")
-        humanScore =+ 1;
+        humanScore += 1;
     }else if (computerchoice ==="rock" && humanchoice === "scissor"){
-         console.log("you lose rock beats scissor")
-        machineScore =+ 1;
+        console.log("you lose rock beats scissor")
+        machineScore += 1;
     };
 
     if(human === "scissor" && computerchoice === "paper"){
         console.log("you win scissor beats paper")
-        humanScore =+ 1;
-    }else if (computerchoice ==="paper" && humanchoice === "scissor"){
-         console.log("you lose scissor beats paper")
-        machineScore =+ 1;
+        humanScore += 1;
+    }else if (computerchoice ==="scissor" && humanchoice === "paper"){
+        console.log("you lose scissor beats paper")
+        machineScore += 1;
     };
 
     if(human === "paper" && computerchoice === "rock"){
         console.log("you win paper beats rock")
-        humanScore =+ 1;
+        humanScore += 1;
     }else if (computerchoice ==="paper" && humanchoice === "rock"){
-         console.log("you lose paper beats rock")
-        machineScore =+ 1;
+        console.log("you lose paper beats rock")
+        machineScore += 1;
     };
 };
 
@@ -65,7 +65,7 @@ function playGame() {
         playRound(humanSelection,machineSelection);
     }
 
-    if(humanScore < machineScore){
+    if(humanScore > machineScore){
         console.log(`you win!! user score ${humanScore} machine score ${machineScore}`)
     }else{
         console.log(`machine win!! user score ${humanScore} machine score ${machineScore}`)
