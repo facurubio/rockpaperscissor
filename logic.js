@@ -24,6 +24,7 @@ function getComputerChoice() {
 //comparacion de opciones y punto al ganador
 let humanScore = 0;
 let machineScore = 0;
+let roundTie = 0;
 
 function playRound(humanchoice, computerchoice){
 
@@ -51,11 +52,12 @@ function playRound(humanchoice, computerchoice){
         console.log("you lose paper beats rock")
         machineScore += 1;
     };
+
+    if(human === computerchoice){
+        console.log("tie")
+        roundTie += 1;
+    }
 };
-
-
-
-
 
 function playGame() {
     for (let i = 1; i <= 5; i ++) {
@@ -66,9 +68,9 @@ function playGame() {
     }
 
     if(humanScore > machineScore){
-        console.log(`you win!! user score ${humanScore} machine score ${machineScore}`)
+        console.log(`you win!! user score ${humanScore} machine score ${machineScore}, tie ${roundTie}`)
     }else{
-        console.log(`machine win!! user score ${humanScore} machine score ${machineScore}`)
+        console.log(`machine win!! user score ${humanScore} machine score ${machineScore}, tie ${roundTie}`)
     }
 }
 
